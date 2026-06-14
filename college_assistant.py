@@ -38,9 +38,11 @@ def result_calculator(subject1: float, subject2: float, subject3: float,
 
 
 @tool
-def fee_balance_calculator(total_fee: float, amount_paid: float) -> str:   
-    """Calculate the pending fee amount given total course fee and amount already paid."""
-    
+def fee_balance_calculator(total_fee: float, amount_paid: float) -> str:
+    """Calculate the pending/remaining fee amount given a total amount due and 
+    amount already paid. Use this whenever the user asks how much money is 
+    still owed or left to pay, for ANY type of fee (course fee, hostel fee, 
+    or any other fee), as long as both a total amount and a paid amount are given."""
     pending = total_fee - amount_paid
     return f"Pending Fee Amount: Rs.{pending:.2f}"
 
@@ -54,18 +56,19 @@ def library_fine_calculator(delayed_days: int) -> str:
 
 
 @tool
-def hostel_fee_calculator(monthly_fee: float, months_stayed: int) -> str:  
-    """Calculate total hostel fee given monthly hostel fee and number of months stayed."""
-    
+def hostel_fee_calculator(monthly_fee: float, months_stayed: int) -> str:
+    """Calculate TOTAL hostel fee by multiplying monthly hostel fee by number 
+    of months stayed. Use ONLY when the user gives a monthly rate and a 
+    number of months, and wants the total cost — NOT for 'how much is left to pay'."""
     total = monthly_fee * months_stayed
     return f"Total Hostel Fee: Rs.{total}"
 
 
 # Bonus tool
 students_db = {
-    "S101": {"name": "Anshika Raj", "course": "BCSE", "year": 3},
+    "S101": {"name": "Anshika Raj", "course": "BECE", "year": 3},
     "S102": {"name": "Suneha Bisht", "course": "BCSE", "year": 2},
-    "S103": {"name": "Aditya Yadav", "course": "BCSE", "year": 4},
+    "S103": {"name": "Aditya Yadav", "course": "BME", "year": 4},
 }
 
 @tool
@@ -87,7 +90,19 @@ prompt = ChatPromptTemplate.from_messages([
                 "accurately answer student queries. Identify which tool(s) are "
                 "needed for each query and call them with the correct inputs "
                 "extracted from the user's message. If multiple values are needed, "
-                "call multiple tools."),
+                "call multiple tools. "
+                "IMPORTANT RULES: "
+                "1. When stating your final answer, directly use the exact "
+                "status/result returned by the tool without re-deriving it. "
+                "2. Never add extra information not returned by a tool — do not "
+                "expand abbreviations or guess full forms. "
+                "3. For any 'how much is left/pending/owed to pay' question with "
+                "a total and an amount paid, ALWAYS use fee_balance_calculator, "
+                "regardless of whether it's about hostel, course, or any other fee."
+                "4. Tool outputs contain ALL the information needed to answer — always "
+                "report every field returned by the tool (e.g., name, course, AND year) "
+                "in your final answer. Never claim information is unavailable if it was "
+                "returned by a tool."),
     MessagesPlaceholder("chat_history", optional=True),
     ("human", "{input}"),
     MessagesPlaceholder("agent_scratchpad"),
@@ -120,7 +135,7 @@ queries = [
 
 if __name__ == "__main__":
     # Run all required test cases
-     for q in queries:
+    for q in queries:
         print("\n" + "=" * 80)
         print(f"QUERY: {q}")
         print("=" * 80)
