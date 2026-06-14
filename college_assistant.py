@@ -66,9 +66,9 @@ def hostel_fee_calculator(monthly_fee: float, months_stayed: int) -> str:
 
 # Bonus tool
 students_db = {
-    "S101": {"name": "Anshika Raj", "course": "BECE", "year": 3},
-    "S102": {"name": "Suneha Bisht", "course": "BCSE", "year": 2},
-    "S103": {"name": "Aditya Yadav", "course": "BME", "year": 4},
+    "S101": {"name": "Naruto Uzumaki", "course": "BECE", "year": 3},
+    "S102": {"name": "Son Goku", "course": "BCSE", "year": 2},
+    "S103": {"name": "Monkey D.Luffy", "course": "BME", "year": 4},
 }
 
 @tool
