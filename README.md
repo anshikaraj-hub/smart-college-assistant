@@ -61,8 +61,11 @@ flowchart TD
 
 ## Example Queries
 I attended 56 classes out of 76, can I attend exams?
+
 I scored 68, 47, 56, 89 and 73. What grade will I get?
+
 Give me details for student S110
+
 I attended 60/70 classes, scored 67,88,45,91,54, paid 1,02,000 of 1,95,000 — give me my full status
 
 The last example demonstrates **multi-tool invocation** — the agent calls `attendance_calculator`, `result_calculator`, and `fee_balance_calculator` in one go and returns a consolidated summary.
