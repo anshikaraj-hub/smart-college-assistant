@@ -33,7 +33,7 @@ python college_assistant.py
 ```
 
 ## Usage
-The script runs the assignment's required test cases first (with `verbose=True` showing the agent's reasoning), then enters an interactive mode where you can type your own queries.
+The script runs some required test cases first (with `verbose=True` showing the agent's reasoning), then enters an interactive mode where you can type your own queries.
 
 ## How It Works
 ```mermaid
