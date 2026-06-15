@@ -13,6 +13,8 @@ An AI-powered college assistant using LangChain's Tool Calling Agent. It automat
 | Hostel Fee Calculator | Monthly fee, Months stayed | Total hostel fee |
 | Student Info Tool (Bonus) | Student ID | Name, Course, Year |
 
+> **Note:** `students_db` is a Python dictionary that simulates a student records database. In a production system, this would be replaced with a real database query or API call — the tool interface (`student_info_tool`) would remain unchanged.
+
 ## Tech Stack
 - **Python**
 - **LangChain** (`langchain_classic.agents` — `create_tool_calling_agent`, `AgentExecutor`)
