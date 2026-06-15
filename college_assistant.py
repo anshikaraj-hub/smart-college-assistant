@@ -66,9 +66,16 @@ def hostel_fee_calculator(monthly_fee: float, months_stayed: int) -> str:
 
 # Bonus tool
 students_db = {
-    "S101": {"name": "Naruto Uzumaki", "course": "BECE", "year": 3},
-    "S102": {"name": "Son Goku", "course": "BCSE", "year": 2},
-    "S103": {"name": "Monkey D.Luffy", "course": "BME", "year": 4},
+    "S101": {"name": "Naruto Uzumaki", "course": "BA in Public Administration & Leadership", "year": 4},
+    "S102": {"name": "Son Goku", "course": "Bachelor of Physical Education & Martial Arts", "year": 7},
+    "S103": {"name": "Monkey D.Luffy", "course": " BSc in Oceanography & Marine Navigation", "year": 10},
+    "S104": {"name": "Satoru Gojo", "course": "PhD in Quantum Physics & Spatial Geometry", "year": 2},
+    "S105": {"name": "Ichigo Kurosaki", "course": "BA in Mortuary Science & Grief Counselling", "year": 3},
+    "S106": {"name": "Edward Elric", "course": "BTech in Metallurgical Engineering & Chemistry", "year": 1},
+    "S107": {"name": "L Lawliet", "course": "MSc in Criminology & Cyber Security", "year": 2},
+    "S108": {"name": "Izuku Midoriya", "course": "Bachelor of Sports Science & Kinesiology", "year": 5},
+    "S109": {"name": "Usagi Tsukino", "course": "BA in Astronomy & Fashion Design", "year": 6},
+    "S110": {"name": "Saitama", "course": "Diploma in Physical Fitness", "year": 3},
 }
 
 @tool
